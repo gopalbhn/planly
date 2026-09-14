@@ -1,0 +1,19 @@
+{
+  "name": "planly",
+  "private": true,
+  "type": "module",
+  "workspaces":[
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "client":"bun --filter @planly/client dev",
+    "server":"bun --filter @planly/server dev"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

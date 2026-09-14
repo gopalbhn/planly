@@ -1,0 +1,15 @@
+{
+    "name": "@planly/server",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "dev": "bun run --watch src/index.ts"
+    },
+    "dependencies": {
+        "@planly/auth": "workspace:*",
+        "@planly/db": "workspace:*",
+        "@planly/shared": "workspace:*",
+        "dotenv": "^17.4.2",
+        "hono": "^4.13.7"
+    }
+}

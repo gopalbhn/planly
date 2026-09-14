@@ -1,0 +1,11 @@
+{
+    "name": "@planly/shared",
+    "type": "module",
+    "private": true,
+    "exports":{
+        ".": "./src/schema/index.ts"
+    },
+    "dependencies": {
+        "zod": "^4.6.2"
+    }
+}

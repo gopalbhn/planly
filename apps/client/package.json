@@ -1,0 +1,5 @@
+{
+    "name": "@planly/client",
+    "type": "module",
+    "private":true
+}
