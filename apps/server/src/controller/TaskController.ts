@@ -1,6 +1,6 @@
 import { Context } from "hono";
-import {db} from "@PMS/db"
-import { taskSchema } from "@PMS/shared";
+import {db} from "@planly/db"
+import { taskSchema } from "@planly/shared";
 const getAllTasks = async (c: Context) => {
     try{
         const userId = c.get("user").id;
