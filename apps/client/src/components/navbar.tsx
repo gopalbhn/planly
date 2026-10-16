@@ -1,10 +1,10 @@
-import { Link } from "@tanstack/react-router"
+import { Link, useNavigate } from "@tanstack/react-router"
 import { Button } from "./ui/button"
 import { useEffect, useState } from "react"
 
 const NavBar = () => {
     const [scrolled, setScrolled] = useState<boolean>(false);
-
+    const navigate = useNavigate()
     useEffect(() => {
         const handleSrcoll = () => {
             setScrolled(window.scrollY > 10)
@@ -30,7 +30,9 @@ const NavBar = () => {
                 }
             </div>
             <div className="flex flex-1 justify-end items-center ">
-                <Button variant={"default"}>Login</Button>
+                <Button variant={"default"} onClick={()=>{
+                    navigate({to:"/login"})
+                }}>Login</Button>
             </div>
         </div>
 

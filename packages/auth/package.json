@@ -2,11 +2,12 @@
     "name": "@planly/auth",
     "type": "module",
     "private": true,
-    "exports":{
+    "exports": {
         ".": "./src/index.ts"
     },
     "dependencies": {
+        "@planly/db": "*",
         "better-auth": "^1.7.4",
-        "@planly/db": "*"
+        "dotenv": "^18.0.8"
     }
 }

@@ -18,10 +18,39 @@
     --color-text:#191B1C;
     --color-text-muted:#7B8285;
 
+    --color-border:#E5E7EB;
+
     --text-hero:36px;
     --text-body:12px;
+    --text-feature:10px;
     --text-small:8px;
 
     --font-sans: "Inter", sans-serif;
 
+}
+
+@keyframes dotPulse {
+          0%, 100% {
+            transform: scale(var(--base-scale, 1));
+            opacity: 0.5;
+          }
+          50% {
+            transform: scale(calc(var(--base-scale, 1) * 1.4));
+            opacity: 1;
+          }
+        }
+        .animate-dot-pulse {
+          animation: dotPulse 2s infinite ease-in-out;
+        }
+
+@keyframes animated-dot{
+    0% { top: 0%; left: 0%; transform: translate(-50%, -50%); }
+  25% { top: 0%; left: 100%; transform: translate(-50%, -50%); }
+  50% { top: 100%; left: 100%; transform: translate(-50%, -50%); }
+  75% { top: 100%; left: 0%; transform: translate(-50%, -50%); }
+  100% { top: 0%; left: 0%; transform: translate(-50%, -50%); }
+}
+
+.animate-border-dot{
+  animation:animated-dot 5s linear infinite;
 }

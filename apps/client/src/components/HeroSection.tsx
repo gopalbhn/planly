@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-
+import { Button } from "./ui/button";
+import { MoveRight} from "lucide-react"
 const GAP = 20;
 const GLOW_RADIUS = 120;
 
@@ -72,32 +73,6 @@ const HeroSection = () => {
         intensity = intensity * intensity;
       }
 
-    
-
-      const gray = {
-        r: 156,
-        g: 163,
-        b: 175,
-      };
-
-      const primary = {
-        r: 99,
-        g: 102,
-        b: 241,
-      };
-
-      const r = Math.round(
-        gray.r + (primary.r - gray.r) * intensity
-      );
-
-      const g = Math.round(
-        gray.g + (primary.g - gray.g) * intensity
-      );
-
-      const b = Math.round(
-        gray.b + (primary.b - gray.b) * intensity
-      );
-
       dots.push(
         <div
           key={`${x}-${y}`}
@@ -108,11 +83,10 @@ const HeroSection = () => {
 
             width: "1px",
             height: "1px",
-
-            backgroundColor: `rgb(${r}, ${g}, ${b})`,
-
+            backgroundColor: "#2755ED",
             transform: `scale(${1 + intensity * 2})`,
-
+          
+            
             transition:
               "background-color 150ms ease, transform 150ms ease",
           }}
@@ -126,28 +100,18 @@ const HeroSection = () => {
       ref={heroRef}
       className="relative h-screen w-full overflow-hidden bg-white"
     >
-      {/* Dot grid */}
       <div className="pointer-events-none absolute inset-0">
         {dots}
       </div>
 
   
-      <div className="relative z-10 flex h-full items-center justify-center">
-        <h1
-          className="
-            bg-gradient-to-b
-            from-neutral-900
-            to-neutral-500
-            bg-clip-text
-            py-8
-            text-5xl
-            font-bold
-            text-transparent
-            sm:text-7xl
-          "
-        >
-          Backgrounds
-        </h1>
+      <div className="relative z-10 flex h-full items-center flex-col mt-40">
+        {/* <h1 className="bg-gradient-to-b from-neutral-900 to-neutral-500 bg-clip-text py-8 text-5xl font-bold text-transparent sm:text-7xl">Backgrounds</h1> */}
+        <h2 className="pt-8 pb-4 text-5xl font-bold text-center ">
+        Plan Better. Work Smarter.<br /> Get Things Done.
+        </h2>
+        <p className="text-gray-600">Bring your projects, tasks, and team collaboration into one simple workspace.</p>
+        <Button variant={"default"} className="mt-5 px-15 py-7 group flex gap-5">Get Started   <MoveRight className="group-hover:translate-x-4 duration-400 size-5 " /></Button>
       </div>
     </section>
   );

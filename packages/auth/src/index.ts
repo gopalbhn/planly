@@ -1,7 +1,11 @@
+import Config from "dotenv"
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { db } from "@planly/db"
 import { magicLink } from "better-auth/plugins";
+Config.config({
+    path: "../../.env"
+})
 
 export const auth = betterAuth({
     database:prismaAdapter(db,{
