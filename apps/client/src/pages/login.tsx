@@ -3,14 +3,28 @@ import { Button } from "@/components/ui/button";
 import Logo from "@/components/ui/Logo";
 import {  Mail, MoveRight } from "lucide-react";
 import { useState } from "react";
+import axios from "axios"
+import api from "@/api";
+import { toast } from "sonner";
 const Login = () =>{
     const [email,setEmail] = useState<string>("");
 
     async function handleEmailClick(){
-       if(email.length >= 0 ){
-        return;
-       }
+        console.log("clicked")
+    if (!email.trim()) {
+    toast.error("Please enter your email");
+    return;
+  }
+       console.log(api.emailLogin)
+       const res = await axios.post(`${api.emailLogin.url}`,{
+        email
+       })
 
+       if(!res.status){
+         toast.error("Unable to login")
+       }
+         toast.success("Check your email for the login link");
+    console.log(res.data);
     }
 
     async function handleGoogleLogin(){
@@ -64,7 +78,7 @@ const Login = () =>{
                 </div>
 
             </div>
-            <div className="h-full w-full overflow-hidden">
+            <div className="h-full w-full overflow-hidden hidden md:block">
                 <img src={Image} className="h-full w-full object-cover" />
             </div>
         </div>

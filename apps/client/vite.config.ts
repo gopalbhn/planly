@@ -3,12 +3,15 @@ import { defineConfig } from 'vite'
 import TanStackRouterVite from '@tanstack/router-plugin/vite'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
+import { fileURLToPath } from 'url'
 // https://vite.dev/config/
+const rootDir = fileURLToPath(new URL("../..", import.meta.url));
 export default defineConfig({
   plugins: [react(), TanStackRouterVite(),tailwindcss()],
   resolve:{
     alias:{
       "@":path.resolve(__dirname,"./src")
     }
-  }
+  },
+  envDir:rootDir
 })

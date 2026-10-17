@@ -8,24 +8,16 @@ const app = new Hono()
 
 app.use("/api/*",cors({
     origin:["http://localhost:5173"],
-    allowMethods:["GET","POST","DELETE","PUT"],
+    allowMethods:["GET","POST","DELETE","PUT","OPTIONS"],
     allowHeaders:["Content-Type","Authorization"],
     credentials:true,
 }))
-
-app.use("*",cors({
-    origin:["http://localhost:5173"],
-    allowMethods:["GET","POST","DELETE","PUT"],
-    allowHeaders:["Content-Type","Authorization"],
-    credentials:true,
-}))
-
-app.on(["GET","POST"],"/api/*",async (c,next)=>{
+app.on(["GET","POST"],"/api/auth/*",async (c,next)=>{
     return auth.handler(c.req.raw)
 })
-
-app.route("api/v1/project",projectRouter)
-app.route("api/v1/board",boardRouter)
-app.route("api/v1/task",taskRouter)
+app.get('/health',(c)=> c.text("Server is healthy"))
+app.route("api/v1/projects",projectRouter)
+app.route("api/v1/boards",boardRouter)
+app.route("api/v1/tasks",taskRouter)
 
 export default app;
